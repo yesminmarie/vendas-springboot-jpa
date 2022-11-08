@@ -1,7 +1,7 @@
 package io.github.yesminmarie;
 
 import io.github.yesminmarie.domain.entity.Cliente;
-import io.github.yesminmarie.domain.repositorio.Clientes;
+import io.github.yesminmarie.domain.repository.Clientes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

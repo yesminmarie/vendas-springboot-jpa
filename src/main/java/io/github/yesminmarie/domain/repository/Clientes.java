@@ -1,4 +1,4 @@
-package io.github.yesminmarie.domain.repositorio;
+package io.github.yesminmarie.domain.repository;
 
 import io.github.yesminmarie.domain.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
