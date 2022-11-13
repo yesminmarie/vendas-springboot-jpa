@@ -4,6 +4,7 @@ import io.github.yesminmarie.domain.entity.Cliente;
 import io.github.yesminmarie.domain.entity.ItemPedido;
 import io.github.yesminmarie.domain.entity.Pedido;
 import io.github.yesminmarie.domain.entity.Produto;
+import io.github.yesminmarie.domain.enums.StatusPedido;
 import io.github.yesminmarie.domain.repository.Clientes;
 import io.github.yesminmarie.domain.repository.ItensPedido;
 import io.github.yesminmarie.domain.repository.Pedidos;
@@ -42,6 +43,7 @@ public class PedidoServiceImpl implements PedidoService {
         pedido.setTotal(dto.getTotal());
         pedido.setDataPedido(LocalDate.now());
         pedido.setCliente(cliente);
+        pedido.setStatus(StatusPedido.REALIZADO);
 
         List<ItemPedido> itensPedido = converterItens(pedido, dto.getItens());
         pedidosRepository.save(pedido);
