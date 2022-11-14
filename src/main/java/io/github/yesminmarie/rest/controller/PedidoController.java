@@ -2,6 +2,8 @@ package io.github.yesminmarie.rest.controller;
 
 import io.github.yesminmarie.domain.entity.ItemPedido;
 import io.github.yesminmarie.domain.entity.Pedido;
+import io.github.yesminmarie.domain.enums.StatusPedido;
+import io.github.yesminmarie.rest.dto.AtualizacaoStatusPedidoDTO;
 import io.github.yesminmarie.rest.dto.InformacaoItemPedidoDTO;
 import io.github.yesminmarie.rest.dto.InformacoesPedidoDTO;
 import io.github.yesminmarie.rest.dto.PedidoDTO;
@@ -42,6 +44,14 @@ public class PedidoController {
                 .map(pedido -> converter(pedido))
                 .orElseThrow(() ->
                         new ResponseStatusException(NOT_FOUND, "Pedido não encontrado."));
+    }
+
+    @PatchMapping("{id}")
+    @ResponseStatus(NO_CONTENT)
+    public void updateStatus(@PathVariable Integer id,
+                             @RequestBody AtualizacaoStatusPedidoDTO dto){
+        String novoStatus = dto.getNovoStatus();
+        service.atualizarStatus(id, StatusPedido.valueOf(novoStatus));
     }
 
     private InformacoesPedidoDTO converter(Pedido pedido){

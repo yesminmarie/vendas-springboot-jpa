@@ -9,6 +9,7 @@ import io.github.yesminmarie.domain.repository.Clientes;
 import io.github.yesminmarie.domain.repository.ItensPedido;
 import io.github.yesminmarie.domain.repository.Pedidos;
 import io.github.yesminmarie.domain.repository.Produtos;
+import io.github.yesminmarie.exception.PedidoNaoEncontradoException;
 import io.github.yesminmarie.exception.RegraNegocioException;
 import io.github.yesminmarie.rest.dto.ItemPedidoDTO;
 import io.github.yesminmarie.rest.dto.PedidoDTO;
@@ -78,6 +79,18 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Override
     public Optional<Pedido> obterPedidoCompleto(Integer id) {
+
         return pedidosRepository.findByIdFetchItens(id);
+    }
+
+    @Override
+    @Transactional
+    public void atualizarStatus(Integer id, StatusPedido statusPedido) {
+        pedidosRepository
+                .findById(id)
+                .map(pedido -> {
+                    pedido.setStatus(statusPedido);
+                    return pedidosRepository.save(pedido);
+                }).orElseThrow(() -> new PedidoNaoEncontradoException());
     }
 }
