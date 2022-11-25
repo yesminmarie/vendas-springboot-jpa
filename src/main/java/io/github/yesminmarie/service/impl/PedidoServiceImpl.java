@@ -5,10 +5,10 @@ import io.github.yesminmarie.domain.entity.ItemPedido;
 import io.github.yesminmarie.domain.entity.Pedido;
 import io.github.yesminmarie.domain.entity.Produto;
 import io.github.yesminmarie.domain.enums.StatusPedido;
-import io.github.yesminmarie.domain.repository.Clientes;
-import io.github.yesminmarie.domain.repository.ItensPedido;
-import io.github.yesminmarie.domain.repository.Pedidos;
-import io.github.yesminmarie.domain.repository.Produtos;
+import io.github.yesminmarie.domain.repository.ClientesRepository;
+import io.github.yesminmarie.domain.repository.ItensPedidoRepository;
+import io.github.yesminmarie.domain.repository.PedidosRepository;
+import io.github.yesminmarie.domain.repository.ProdutosRepository;
 import io.github.yesminmarie.exception.PedidoNaoEncontradoException;
 import io.github.yesminmarie.exception.RegraNegocioException;
 import io.github.yesminmarie.rest.dto.ItemPedidoDTO;
@@ -27,10 +27,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class PedidoServiceImpl implements PedidoService {
 
-    private final Pedidos pedidosRepository;
-    private final Clientes clientesRepository;
-    private final Produtos produtosRepository;
-    private final ItensPedido itensPedidoRepository;
+    private final PedidosRepository pedidosRepository;
+    private final ClientesRepository clientesRepository;
+    private final ProdutosRepository produtosRepository;
+    private final ItensPedidoRepository itensPedidoRepository;
 
     @Override
     @Transactional
