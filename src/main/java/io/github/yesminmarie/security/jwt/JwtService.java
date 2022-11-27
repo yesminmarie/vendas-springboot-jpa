@@ -1,5 +1,6 @@
-package io.github.yesminmarie;
+package io.github.yesminmarie.security.jwt;
 
+import io.github.yesminmarie.VendasApplication;
 import io.github.yesminmarie.domain.entity.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
