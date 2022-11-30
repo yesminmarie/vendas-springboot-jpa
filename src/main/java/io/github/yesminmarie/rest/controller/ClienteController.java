@@ -2,6 +2,7 @@ package io.github.yesminmarie.rest.controller;
 
 import io.github.yesminmarie.domain.entity.Cliente;
 import io.github.yesminmarie.domain.repository.ClientesRepository;
+import io.swagger.annotations.*;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/clientes")
+@Api("Api Clientes")
 public class ClienteController {
 
     private ClientesRepository clientesRepository;
@@ -22,7 +24,14 @@ public class ClienteController {
     }
 
     @GetMapping("{id}")
-    public Cliente getClienteById(@PathVariable Integer id ){
+    @ApiOperation("Obter detalhes de um cliente")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Cliente encontrado"),
+            @ApiResponse(code = 404, message = "Cliente não encontrado para o ID informado")
+    })
+    public Cliente getClienteById(
+            @PathVariable
+            @ApiParam("Id do cliente") Integer id ){
         return clientesRepository
                 .findById(id)
                 .orElseThrow(() ->
@@ -32,13 +41,25 @@ public class ClienteController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Salva um novo cliente")
+    @ApiResponses({
+            @ApiResponse(code = 201, message = "Cliente salvo com sucesso"),
+            @ApiResponse(code = 400, message = "Erro de validação")
+    })
     public Cliente save(@RequestBody @Valid Cliente cliente){
         return clientesRepository.save(cliente);
     }
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Integer id){
+    @ApiOperation("Deleta um cliente")
+    @ApiResponses({
+            @ApiResponse(code = 204, message = "Cliente deletado com sucesso"),
+            @ApiResponse(code = 404, message = "Cliente não encontrado para o ID informado")
+    })
+    public void delete(
+            @PathVariable
+            @ApiParam("Id do cliente") Integer id){
         clientesRepository.findById(id)
                 .map(cliente -> {
                     clientesRepository.delete(cliente);
@@ -50,7 +71,12 @@ public class ClienteController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update( @PathVariable Integer id,
+    @ApiOperation("Atualiza um cliente")
+    @ApiResponses({
+            @ApiResponse(code = 204, message = "Cliente atualizado com sucesso"),
+            @ApiResponse(code = 404, message = "Cliente não encontrado para o ID informado")
+    })
+    public void update( @PathVariable @ApiParam("Id do cliente") Integer id,
                         @RequestBody @Valid Cliente cliente){
         clientesRepository
                 .findById(id)
@@ -63,6 +89,10 @@ public class ClienteController {
     }
 
     @GetMapping
+    @ApiOperation("Faz um filtro por qualquer propriedade")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Cliente encontrado")
+    })
     public List<Cliente> find(Cliente filtro){
         ExampleMatcher matcher = ExampleMatcher
                                     .matching()
