@@ -2,6 +2,7 @@ package io.github.yesminmarie.rest.controller;
 
 import io.github.yesminmarie.domain.entity.Cliente;
 import io.github.yesminmarie.domain.repository.ClientesRepository;
+import io.github.yesminmarie.service.ClienteService;
 import io.swagger.annotations.*;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -17,10 +18,11 @@ import java.util.List;
 @Api("Api Clientes")
 public class ClienteController {
 
-    private ClientesRepository clientesRepository;
+    private ClienteService clienteService;
 
-    public ClienteController(ClientesRepository clientesRepository) {
-        this.clientesRepository = clientesRepository;
+    public ClienteController(ClienteService clienteService) {
+
+        this.clienteService = clienteService;
     }
 
     @GetMapping("{id}")
@@ -32,11 +34,7 @@ public class ClienteController {
     public Cliente getClienteById(
             @PathVariable
             @ApiParam("Id do cliente") Integer id ){
-        return clientesRepository
-                .findById(id)
-                .orElseThrow(() ->
-                        new ResponseStatusException(HttpStatus.NOT_FOUND,
-                                "Cliente não encontrado."));
+        return clienteService.getClienteById(id);
     }
 
     @PostMapping
@@ -47,7 +45,8 @@ public class ClienteController {
             @ApiResponse(code = 400, message = "Erro de validação")
     })
     public Cliente save(@RequestBody @Valid Cliente cliente){
-        return clientesRepository.save(cliente);
+
+        return clienteService.salvar(cliente);
     }
 
     @DeleteMapping("{id}")
@@ -60,13 +59,7 @@ public class ClienteController {
     public void delete(
             @PathVariable
             @ApiParam("Id do cliente") Integer id){
-        clientesRepository.findById(id)
-                .map(cliente -> {
-                    clientesRepository.delete(cliente);
-                    return cliente;
-                })
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Cliente não encontrado"));
+        clienteService.delete(id);
     }
 
     @PutMapping("{id}")
@@ -78,14 +71,7 @@ public class ClienteController {
     })
     public void update( @PathVariable @ApiParam("Id do cliente") Integer id,
                         @RequestBody @Valid Cliente cliente){
-        clientesRepository
-                .findById(id)
-                .map( clienteExistente -> {
-                    cliente.setId(clienteExistente.getId());
-                    clientesRepository.save(cliente);
-                    return clienteExistente;
-                }).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Cliente não encontrado"));
+        clienteService.update(id, cliente);
     }
 
     @GetMapping
@@ -94,12 +80,6 @@ public class ClienteController {
             @ApiResponse(code = 200, message = "Cliente encontrado")
     })
     public List<Cliente> find(Cliente filtro){
-        ExampleMatcher matcher = ExampleMatcher
-                                    .matching()
-                                    .withIgnoreCase()
-                                    .withStringMatcher(
-                                            ExampleMatcher.StringMatcher.CONTAINING);
-        Example example = Example.of(filtro, matcher);
-        return clientesRepository.findAll(example);
+        return clienteService.find(filtro);
     }
 }
