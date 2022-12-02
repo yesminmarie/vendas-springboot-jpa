@@ -1,14 +1,10 @@
 package io.github.yesminmarie.rest.controller;
 
 import io.github.yesminmarie.domain.entity.Cliente;
-import io.github.yesminmarie.domain.repository.ClientesRepository;
 import io.github.yesminmarie.service.ClienteService;
 import io.swagger.annotations.*;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
