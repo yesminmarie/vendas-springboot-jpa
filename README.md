@@ -53,13 +53,13 @@ cd vendas-springboot-jpa
 <h2> Endpoints: </h2>
 <h3> Clientes: </h3>
 
-:heavy_check_mark: GET - localhost:8080/api/clientes/{id} (Obtem detalhes de um cliente específico)
+- GET - localhost:8080/api/clientes/{id} (Gets details of a specific customer)
 
-:heavy_check_mark: GET - localhost:8080/api/clientes (Faz um filtro por qualquer propriedade)
-<p> Exemplo: http://localhost:8080/api/clientes?cpf=123&nome=maria  </p>
+- GET - localhost:8080/api/clientes (Filter by any property)
+<p> Example: http://localhost:8080/api/clientes?cpf=123&nome=maria  </p>
 
-:heavy_check_mark: POST - localhost:8080/api/clientes (Salva um novo cliente)
-<p>Exemplo:</p>
+- POST - localhost:8080/api/clientes (Save a new customer)
+<p>Example:</p>
 
 ```bash
 
@@ -70,8 +70,8 @@ cd vendas-springboot-jpa
 
 ```
 
-:heavy_check_mark: PUT - localhost:8080/api/clientes (atualizar um cliente específico)
-<p>Exemplo:</p>
+- PUT - localhost:8080/api/clientes/{id} (update a specific customer)
+<p>Example:</p>
 
 ```bash
 {
@@ -79,6 +79,33 @@ cd vendas-springboot-jpa
   "nome": "Maria"
 }
 ```
-:heavy_check_mark: DELETE - localhost:8080/api/{id} (Deleta um cliente pelo id)
+- DELETE - localhost:8080/api/clientes/{id} (Delete a customer by id)
 
 <h3> Produtos: </h3>
+- GET - localhost:8080/api/produtos/{id} (Get details for a specific product)
+
+- GET - localhost:8080/api/produtos (Filter by any property)
+<p> Example: http://localhost:8080/api/produtos?descricao=mouse&preco=25 </p>
+
+- POST - localhost:8080/api/produtos (Save a new product)
+<p>Example:</p>
+
+```bash
+
+{
+  "descricao": "Mouse",
+  "preco": 40.00
+}
+
+```
+
+- PUT - localhost:8080/api/produtos/{id} (update a specific product)
+<p>Example:</p>
+
+```bash
+{
+  "descricao": "Mouse",
+  "preco": 40.00
+}
+```
+- DELETE - localhost:8080/api/{id} (Delete a product by id)
