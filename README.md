@@ -62,7 +62,7 @@ cd vendas-springboot-jpa
 
 - POST - localhost:8080/api/usuarios (Save a new user)
 
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 
 ```bash
 {
@@ -75,7 +75,7 @@ cd vendas-springboot-jpa
 
 - POST - localhost:8080/api/usuarios/auth (Authenticate a user)
 
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 
 ```bash
 {
@@ -90,10 +90,11 @@ cd vendas-springboot-jpa
 - GET - localhost:8080/api/clientes/{id} (Gets details of a specific customer)
 
 - GET - localhost:8080/api/clientes (Filter by any property)
-<p> Example: http://localhost:8080/api/clientes?cpf=123&nome=maria  </p>
+<p><strong> Example: <a href = "http://localhost:8080/api/clientes?cpf=123&nome=maria">
+http://localhost:8080/api/clientes?cpf=123&nome=maria </a> </strong></p>
 
 - POST - localhost:8080/api/clientes (Save a new customer)
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 
 ```bash
 
@@ -105,7 +106,7 @@ cd vendas-springboot-jpa
 ```
 
 - PUT - localhost:8080/api/clientes/{id} (update a specific customer)
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 
 ```bash
 {
@@ -120,10 +121,11 @@ cd vendas-springboot-jpa
 - GET - localhost:8080/api/produtos/{id} (Get details for a specific product)
 
 - GET - localhost:8080/api/produtos (Filter by any property)
-<p> Example: http://localhost:8080/api/produtos?descricao=mouse&preco=25 </p>
+<p><strong> Example: <a href = "http://localhost:8080/api/produtos?descricao=mouse&preco=25">
+http://localhost:8080/api/produtos?descricao=mouse&preco=25 </a></strong></p>
 
 - POST - localhost:8080/api/produtos (Save a new product)
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 
 ```bash
 
@@ -135,7 +137,8 @@ cd vendas-springboot-jpa
 ```
 
 - PUT - localhost:8080/api/produtos/{id} (update a specific product)
-<p>Example:</p>
+
+<p><strong>Example:</strong></p>
 
 ```bash
 {
@@ -152,7 +155,8 @@ cd vendas-springboot-jpa
 - PATCH - localhost:8080/api/pedidos/{id} (Update order status)
 
 - POST - localhost:8080/api/pedidos (Save a new order)
-<p>Example:</p>
+
+<p><strong>Example:</strong></p>
 
 ```bash
 
