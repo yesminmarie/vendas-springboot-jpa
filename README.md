@@ -13,7 +13,7 @@ in the system. The role USER can only manipulate the customers
 and orders endpoints.</p>
 
 <p>In addition to the subjects seen in the course, I decided to 
-create unit tests with JUnit and Mockito to increment the project.</p>
+create unit tests with <strong>JUnit</strong> and <strong>Mockito</strong> to increment the project.</p>
 
 <p>You can use the Swagger to manipulate the endpoints:
 <a href = "http://localhost:8080/swagger-ui.html">
