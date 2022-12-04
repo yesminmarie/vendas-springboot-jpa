@@ -3,7 +3,7 @@ package io.github.yesminmarie.service.impl;
 import io.github.yesminmarie.domain.entity.Usuario;
 import io.github.yesminmarie.domain.repository.UsuarioRepository;
 import io.github.yesminmarie.exception.SenhaInvalidaException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,13 +13,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@RequiredArgsConstructor
 public class UsuarioServiceImpl implements UserDetailsService {
 
-    @Autowired
-    private PasswordEncoder encoder;
+    private final PasswordEncoder encoder;
 
-    @Autowired
-    private UsuarioRepository repository;
+    private final UsuarioRepository repository;
 
     @Transactional
     public Usuario salvar(Usuario usuario){
