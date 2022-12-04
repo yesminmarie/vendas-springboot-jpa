@@ -60,15 +60,19 @@ cd vendas-springboot-jpa
 
 :heavy_check_mark: POST - localhost:8080/api/clientes (Salva um novo cliente)
 <p>Exemplo:</p>
+
 ```bash
+
 {
   "cpf": "94666871071",
   "nome": "Maria"
 }
+
 ```
 
 :heavy_check_mark: PUT - localhost:8080/api/clientes (atualizar um cliente específico)
 <p>Exemplo:</p>
+
 ```bash
 {
   "cpf": "94666871071",
