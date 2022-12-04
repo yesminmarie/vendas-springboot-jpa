@@ -17,18 +17,18 @@ http://localhost:8080/swagger-ui.html</a> </p>
 <h1 id="technologies">:rocket: Technologies</h1>
 <p>It was used these technologies in this project.</p>
 
-- [Java](https://www.oracle.com/java/)
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
-- [Spring Security](https://spring.io/projects/spring-security)
-- [JWT](https://jwt.io)
-- [Lombok](https://projectlombok.org/)
-- [MySQL](https://www.mysql.com/)
-- [H2](https://www.h2database.com/html/main.html)
-- [JUnit5](https://junit.org/junit5/docs/current/user-guide/)
-- [Mockito](https://site.mockito.org/)
-- [Swagger](https://swagger.io/)
-- [Maven](https://maven.apache.org/)
+:ballot_box_with_check: [Java](https://www.oracle.com/java/)
+:ballot_box_with_check: [Spring Boot](https://spring.io/projects/spring-boot)
+:ballot_box_with_check: [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+:ballot_box_with_check: [Spring Security](https://spring.io/projects/spring-security)
+:ballot_box_with_check: [JWT](https://jwt.io)
+:ballot_box_with_check: [Lombok](https://projectlombok.org/)
+:ballot_box_with_check: [MySQL](https://www.mysql.com/)
+:ballot_box_with_check: [H2](https://www.h2database.com/html/main.html)
+:ballot_box_with_check: [JUnit5](https://junit.org/junit5/docs/current/user-guide/)
+:ballot_box_with_check: [Mockito](https://site.mockito.org/)
+:ballot_box_with_check: [Swagger](https://swagger.io/)
+:ballot_box_with_check: [Maven](https://maven.apache.org/)
 
 <h1 id="how-to-run">:computer: How to run the application</h1>
 
@@ -53,12 +53,12 @@ cd vendas-springboot-jpa
 <h2> Endpoints: </h2>
 <h3> Clientes: </h3>
 
-:heavy_check_mark: GET - localhost:8080/api/clientes/{id} (Obtem detalhes de um cliente específico)
+:ballot_box_with_check: GET - localhost:8080/api/clientes/{id} (Obtem detalhes de um cliente específico)
 
-:heavy_check_mark: GET - localhost:8080/api/clientes (Faz um filtro por qualquer propriedade)
+:ballot_box_with_check: GET - localhost:8080/api/clientes (Faz um filtro por qualquer propriedade)
 <p> Exemplo: http://localhost:8080/api/clientes?cpf=123&nome=maria  </p>
 
-:heavy_check_mark: POST - localhost:8080/api/clientes (Salva um novo cliente)
+:ballot_box_with_check: POST - localhost:8080/api/clientes (Salva um novo cliente)
 <p>Exemplo:</p>
 
 ```bash
@@ -70,7 +70,7 @@ cd vendas-springboot-jpa
 
 ```
 
-:heavy_check_mark: PUT - localhost:8080/api/clientes (atualizar um cliente específico)
+:ballot_box_with_check: PUT - localhost:8080/api/clientes (atualizar um cliente específico)
 <p>Exemplo:</p>
 
 ```bash
@@ -79,6 +79,6 @@ cd vendas-springboot-jpa
   "nome": "Maria"
 }
 ```
-:heavy_check_mark: DELETE - localhost:8080/api/{id} (Deleta um cliente pelo id)
+:ballot_box_with_check: DELETE - localhost:8080/api/{id} (Deleta um cliente pelo id)
 
 <h3> Produtos: </h3>
