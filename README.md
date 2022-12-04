@@ -1,7 +1,9 @@
 <h1 align="center">:rocket: Vendas Application :rocket:</h1>
+
 <p>I developed this project in the UDEMY course 
 "Spring Boot Expert: JPA, RESTFul API, Security, JWT e Mais" 
 taught by professor Dougllas Sousa. </p>
+
 <p>In this project you can create a new user and authenticated it. 
 The endpoints of customers(clientes), products(produtos) 
 and orders(pedidos) only worked if the user is authenticated 
@@ -9,12 +11,16 @@ and use the token. There are two roles in the application:
 ADMIN and USER. The user with role Admin can do everything 
 in the system. The role USER can only manipulate the customers 
 and orders endpoints.</p>
+
 <p>In addition to the subjects seen in the course, I decided to 
 create unit tests to increment the project.</p>
+
 <p>You can use the Swagger to manipulate the endpoints:
 <a href = "http://localhost:8080/swagger-ui.html">
 http://localhost:8080/swagger-ui.html</a> </p>
+
 <h1 id="technologies">:rocket: Technologies</h1>
+
 <p>It was used these technologies in this project.</p>
 
 - [Java](https://www.oracle.com/java/)
@@ -51,6 +57,34 @@ cd vendas-springboot-jpa
 ./mvn spring-boot:run
 ```
 <h2> Endpoints: </h2>
+
+<h3> Usuarios: </h3>
+
+- POST - localhost:8080/api/usuarios (Save a new user)
+
+<p>Example:</p>
+
+```bash
+{
+  "admin": true,
+  "login": "maria",
+  "senha": "teste123"
+}
+
+```
+
+- POST - localhost:8080/api/usuarios/auth (Authenticate a user)
+
+<p>Example:</p>
+
+```bash
+{
+  "login": "maria",
+  "senha": "teste123"
+}
+
+```
+
 <h3> Clientes: </h3>
 
 - GET - localhost:8080/api/clientes/{id} (Gets details of a specific customer)
@@ -82,6 +116,7 @@ cd vendas-springboot-jpa
 - DELETE - localhost:8080/api/clientes/{id} (Delete a customer by id)
 
 <h3> Produtos: </h3>
+
 - GET - localhost:8080/api/produtos/{id} (Get details for a specific product)
 
 - GET - localhost:8080/api/produtos (Filter by any property)
@@ -109,3 +144,29 @@ cd vendas-springboot-jpa
 }
 ```
 - DELETE - localhost:8080/api/{id} (Delete a product by id)
+
+<h3> Pedidos: </h3>
+
+- GET - localhost:8080/api/pedidos/{id} (Gets details of a specific order)
+
+- PATCH - localhost:8080/api/pedidos/{id} (Update order status)
+
+- POST - localhost:8080/api/pedidos (Save a new order)
+<p>Example:</p>
+
+```bash
+
+{
+  "cliente": 1,
+  "itens": [
+    {
+      "produto": 1,
+      "quantidade": 5
+    }
+  ],
+  "total": 100
+}
+
+```
+
+<h4>Made with ❤️ by Yesmin Marie</h4>
