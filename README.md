@@ -2,7 +2,7 @@
 
 <p>I developed this project in the UDEMY course 
 "Spring Boot Expert: JPA, RESTFul API, Security, JWT e Mais" 
-taught by professor Dougllas Sousa. </p>
+that was taught by professor Dougllas Sousa. </p>
 
 <p>In this project you can create a new user and authenticated it. 
 The endpoints of customers(clientes), products(produtos) 
