@@ -12,7 +12,7 @@ ADMIN and USER. The user with role ADMIN can do everything
 in the system. The role USER can only manipulate the customers 
 and orders endpoints.</p>
 
-<p>In addition to the subjects seen in the course, I decided to 
+<p>In addition to the subjects I have studied in this course, I decided to 
 create unit tests with <strong>JUnit</strong> and <strong>Mockito</strong> to increment the project.</p>
 
 <p>You can use the Swagger to manipulate the endpoints:
