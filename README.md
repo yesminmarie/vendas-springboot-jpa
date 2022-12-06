@@ -154,6 +154,14 @@ http://localhost:8080/api/produtos?descricao=mouse&preco=25 </a></strong></p>
 
 - PATCH - localhost:8080/api/pedidos/{id} (Update order status)
 
+<p><strong>Example:</strong></p>
+
+```bash
+{
+  "novoStatus": "CANCELADO"
+}
+```
+
 - POST - localhost:8080/api/pedidos (Save a new order)
 
 <p><strong>Example:</strong></p>
